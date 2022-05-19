@@ -32,3 +32,11 @@ Route::post('/admin/satuan/create', 'Admin\SatuanController@create');
 Route::get('/admin/satuan/edit/{id}', 'Admin\SatuanController@edit');
 Route::post('/admin/satuan/update/{id}', 'Admin\SatuanController@update');
 Route::get('/admin/satuan/delete/{id}', 'Admin\SatuanController@delete');
+
+//Client
+Route::get('/admin/client', 'Admin\ClientController@read');
+Route::get('/admin/client/add', 'Admin\ClientController@add');
+Route::post('/admin/client/create', 'Admin\ClientController@create');
+Route::get('/admin/client/edit/{id}', 'Admin\ClientController@edit');
+Route::post('/admin/client/update/{id}', 'Admin\ClientController@update');
+Route::get('/admin/client/delete/{id}', 'Admin\ClientController@delete');
