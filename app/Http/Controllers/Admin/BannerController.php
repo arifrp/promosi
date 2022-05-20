@@ -27,7 +27,7 @@ class BannerController extends Controller
         DB::table('banner')->insert([
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
-            'foto' => $request->file('images'),
+            'foto' => $request->file('foto')->store('public/asset-admin/images/banner'),
         ]);
 
         return redirect('/admin/banner')->with("success","Data Berhasil Ditambah !");

@@ -98,8 +98,8 @@
                     <label class="form-control">{{$data->deskripsi}}</label>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputUsername1">Foto</label>
-                    <label class="form-control">{{$data->foto}}</label>
+                    <label for="foto">Foto</label>
+                    <label class="form-control-file">{{$data->foto}}</label>
                   </div>
                 <div class="row mt-1">
                   <div class="col-md-6">

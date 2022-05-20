@@ -36,7 +36,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                       <label for="exampleInputUsername1">Judul</label>
-                      <input type="text" autofocus required class="form-control" name="nama" placeholder="Masukan Judul...">
+                      <input type="text" autofocus required class="form-control" name="judul" placeholder="Masukan Judul...">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputUsername1">Deskripsi</label>

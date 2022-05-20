@@ -46,5 +46,5 @@ Route::get('/admin/banner', 'Admin\BannerController@read');
 Route::get('/admin/banner/add', 'Admin\BannerController@add');
 Route::post('/admin/banner/create', 'Admin\BannerController@create');
 Route::get('/admin/banner/edit/{id}', 'Admin\BannerController@edit');
-Route::post('/admin/banne/update/{id}', 'Admin\BannerController@update');
+Route::post('/admin/banner/update/{id}', 'Admin\BannerController@update');
 Route::get('/admin/banner/delete/{id}', 'Admin\BannerController@delete');
