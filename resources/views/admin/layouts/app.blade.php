@@ -113,13 +113,13 @@
             </div>
           </li>
           @endif
-          <li class="nav-item @if ($activePage == 'absen') active @endif">
+          <li class="nav-item @if ($activePage == 'client') active @endif">
             <a class="nav-link" href="/admin/client">
               <i class="icon-head menu-icon"></i>
               <span class="menu-title">Data Client</span>
             </a>
           </li>
-          <li class="nav-item @if ($activePage == 'absen') active @endif">
+          <li class="nav-item @if ($activePage == 'produk') active @endif">
             <a class="nav-link" href="/admin/produk">
               <i class="ti-archive menu-icon"></i>
               <span class="menu-title">Data Produk</span>
