@@ -40,3 +40,11 @@ Route::post('/admin/client/create', 'Admin\ClientController@create');
 Route::get('/admin/client/edit/{id}', 'Admin\ClientController@edit');
 Route::post('/admin/client/update/{id}', 'Admin\ClientController@update');
 Route::get('/admin/client/delete/{id}', 'Admin\ClientController@delete');
+
+//Produk
+Route::get('/admin/produk', 'Admin\ProdukController@read');
+Route::get('/admin/produk/add', 'Admin\ProdukController@add');
+Route::post('/admin/produk/create', 'Admin\ProdukController@create');
+Route::get('/admin/produk/edit/{id}', 'Admin\ProdukController@edit');
+Route::post('/admin/produk/update/{id}', 'Admin\ProdukController@update');
+Route::get('/admin/produk/delete/{id}', 'Admin\ProdukController@delete');

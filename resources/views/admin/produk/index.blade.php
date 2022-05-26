@@ -1,5 +1,5 @@
 @extends('admin.layouts.app', [
-    'activePage' => 'client',
+    'activePage' => 'produk',
   ])
 
 @section('content')
@@ -10,7 +10,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Data Client</h3>
+                  <h3 class="font-weight-bold">Data Produk</h3>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
@@ -25,8 +25,8 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between">
-                    <h3><i class="mdi mdi-view-list"></i> List Judul Client</h3>
-                    <a href="/admin/client/add">
+                    <h3><i class="mdi mdi-view-list"></i> List Data Produk</h3>
+                    <a href="/admin/produk/add">
                       <button type="button" class="btn btn-inverse-info btn-rounded btn-sm"><i class="mdi mdi-library-plus mr-1"></i> Tambah Data</button>
                     </a>
                   </div>
@@ -52,8 +52,9 @@
                       <thead class="bg-primary" style="color: white">
                         <tr>
                           <th>#</th>
-                          <th>Judul</th>
+                          <th>Nama</th>
                           <th>Deskripsi</th>
+                          <th>Harga</th>
                           <th class="text-center">Action</th>
                         </tr>
                       </thead>
@@ -62,10 +63,11 @@
                         @foreach($satuan as $data)
                         <tr class="odd selected">
                           <td>{{$no++}}</td>
-                          <td>{{$data->judul}}</td>
+                          <td>{{$data->nama}}</td>
                           <td>{{$data->deskripsi}}</td>
+                          <td>@currency($data->harga)</td>
                           <td class="text-center">
-                            <a href="/admin/client/edit/{{$data->id}}"><button class="btn btn-inverse-success btn-sm"><i class="ti-pencil"> Edit</i></button></a>
+                            <a href="/admin/produk/edit/{{$data->id}}"><button class="btn btn-inverse-success btn-sm"><i class="ti-pencil"> Edit</i></button></a>
                             <button class="btn btn-inverse-danger btn-sm" data-toggle="modal" data-target="#data-{{$data->id}}"><i class="ti-trash"> Delete</i></button>
                           </td>
                         </tr>
@@ -87,12 +89,12 @@
               <div class="modal-body">
                 <h2 class="text-center">Apakah Anda Yakin Menghapus Data Ini ?<h2><hr>
                 <div class="form-group">
-                  <label for="exampleInputUsername1">Judul</label>
-                  <label class="form-control">{{$data->judul}}</label>
+                  <label for="exampleInputUsername1">Nama</label>
+                  <label class="form-control">{{$data->nama}}</label>
                 </div>
                 <div class="row mt-1">
                   <div class="col-md-6">
-                    <a href="/admin/client/delete/{{$data->id}}" style="text-decoration: none;">
+                    <a href="/admin/produk/delete/{{$data->id}}" style="text-decoration: none;">
                       <button type="button" class="btn btn-inverse-info btn-block">Ya</button>
                     </a>
                   </div>

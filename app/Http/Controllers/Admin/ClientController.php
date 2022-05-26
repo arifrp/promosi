@@ -41,7 +41,8 @@ class ClientController extends Controller
         DB::table('client')
             ->where('id', $id)
             ->update([
-            'judul' => $request->judul]);
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi]);
 
         return redirect('/admin/client')->with("success","Data Berhasil Diupdate !");
     }
