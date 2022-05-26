@@ -48,3 +48,11 @@ Route::post('/admin/banner/create', 'Admin\BannerController@create');
 Route::get('/admin/banner/edit/{id}', 'Admin\BannerController@edit');
 Route::post('/admin/banner/update/{id}', 'Admin\BannerController@update');
 Route::get('/admin/banner/delete/{id}', 'Admin\BannerController@delete');
+
+//Client
+Route::get('/admin/client', 'Admin\ClientController@read');
+Route::get('/admin/client/add', 'Admin\ClientController@add');
+Route::post('/admin/client/create', 'Admin\ClientController@create');
+Route::get('/admin/client/edit/{id}', 'Admin\ClientController@edit');
+Route::post('/admin/client/update/{id}', 'Admin\ClientController@update');
+Route::get('/admin/client/delete/{id}', 'Admin\ClientController@delete');

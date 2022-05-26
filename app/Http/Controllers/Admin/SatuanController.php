@@ -19,7 +19,7 @@ class SatuanController extends Controller
     }
 
     public function create(Request $request){
-        DB::table('satuan')->insert([  
+        DB::table('satuan')->insert([
             'nama' => $request->nama]);
 
         return redirect('/admin/satuan')->with("success","Data Berhasil Ditambah !");
@@ -36,7 +36,7 @@ class SatuanController extends Controller
     }
 
     public function update(Request $request, $id) {
-        DB::table('satuan')  
+        DB::table('satuan')
             ->where('id', $id)
             ->update([
             'nama' => $request->nama]);
