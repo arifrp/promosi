@@ -15,7 +15,9 @@ class ProdukController extends Controller
     }
 
     public function add(){
-    	return view('admin.produk.tambah');
+        $satuan= DB::table('satuan')->get();
+        $jenis= DB::table('jenis')->get();
+        return view('admin.produk.tambah',['satuan'=>$satuan, 'jenis'=>$jenis]);
     }
 
     public function create(Request $request){
@@ -25,7 +27,7 @@ class ProdukController extends Controller
             'harga' => $request->harga,
             'id_satuan' => $request->id_satuan,
             'id_jenis' => $request->id_jenis,
-            'foto' => $request->foto]);
+            'foto' => $request->file('foto')]);
 
         return redirect('/admin/produk')->with("success","Data Berhasil Ditambah !");
     }
@@ -37,7 +39,22 @@ class ProdukController extends Controller
 
     public function edit($id){
         $satuan= DB::table('produk')->where('id',$id)->first();
-        return view('admin.produk.edit',['satuan'=>$satuan]);
+        
+        //$produk= DB::table('satuan')->where('id',$id)->first();
+        $produk= DB::table('satuan')->find($satuan->id_satuan);        
+    	$produkAll= DB::table('satuan')->where('id','!=',$produk->id)->get();
+
+        //$jenis= DB::table('jenis')->get();
+        //return view('admin.produk.edit',['satuan'=>$satuan]);
+        //$satuan= DB::table('satuan')->find($satuan->id_satuan);
+
+        //$jenis= DB::table('jenis')->where('id',$id)->first();
+        $jenis= DB::table('jenis')->find($satuan->id_jenis);
+        $jenisAll= DB::table('jenis')->where('id','!=',$jenis->id)->get();
+     
+        return view('admin.produk.edit',['satuan'=>$satuan, 'produk'=>$produk, 'produkAll'=>$produkAll, 'jenis'=>$jenis, 'jenisAll'=>$jenisAll]);
+        //return view('admin.produk.edit',['satuan'=>$satuan, 'satuanAll'=>$satuanAll, 'jenis'=>$jenis, 'jenisAll'=>$jenisAll]);
+
     }
 
     public function update(Request $request, $id) {
@@ -46,7 +63,9 @@ class ProdukController extends Controller
             ->update([
             'nama' => $request->nama,
             'deskripsi' => $request->deskripsi,
-            'harga' => $request->harga]);
+            'harga' => $request->harga,
+            'id_satuan' => $request->id_satuan,
+            'id_jenis' => $request->id_jenis]);
 
         return redirect('/admin/produk')->with("success","Data Berhasil Diupdate !");
     }

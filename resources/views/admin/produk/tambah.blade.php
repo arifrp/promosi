@@ -33,30 +33,47 @@
                   <hr>
                   <form class="forms-sample" action="/admin/produk/create" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <div class="form-row">
+                    <div class="col-md-6 mb-3">
                       <label for="exampleInputUsername1">Nama</label>
                       <input type="text" autofocus required class="form-control" name="nama" placeholder="Masukan Nama Produk...">
                     </div>
-                    <div class="form-group">
+
+                    <div class="col-md-6 mb-3">
                       <label for="exampleInputUsername1">Deskripsi</label>
                       <input type="text" autofocus required class="form-control" name="deskripsi" placeholder="Masukan Deskripsi...">
                     </div>
-                    <div class="form-group">
+
+                    <div class="col-md-6 mb-3">
                       <label for="exampleInputUsername1">Harga</label>
                       <input type="text" autofocus required class="form-control" name="harga" placeholder="Masukan Harga...">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">ID Satuan</label>
-                      <input type="dropdown" autofocus required class="form-control" name="id_satuan" placeholder="Masukan Deskripsi...">
+
+                    <div class="col-md-6 mb-3">
+                      <label>Satuan</label>
+                      <select required name="id_satuan" class="js-example-basic-single w-100">
+                        <option value="">-- Pilih Nama Satuan ---</option>
+                        @foreach($satuan as $data)
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">ID Jenis</label>
-                      <input type="text" autofocus required class="form-control" name="id_jenis" placeholder="Masukan Deskripsi...">
+
+                    <div class="col-md-6 mb-3">
+                      <label>Jenis</label>
+                      <select required name="id_jenis" class="js-example-basic-single w-100">
+                        <option value="">-- Pilih Jenis Produk ---</option>
+                        @foreach($jenis as $data)
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
-                    <div class="form-group">
+
+                    <div class="col-md-6 mb-3">
                       <label for="exampleInputUsername1">Foto</label>
                       <input type="file" autofocus required class="form-control" name="foto">
                     </div>
+
                     <button type="submit" class="btn btn-primary mt-1 mr-2"><i class="mdi mdi-content-save-all"></i> Tambah Data</button>
                   </form>
                 </div>

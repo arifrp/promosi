@@ -33,22 +33,47 @@
                   <hr>
                   <form class="forms-sample" action="/admin/produk/update/{{$satuan->id}}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Nama</label>
-                      <input type="text" autofocus required class="form-control" name="nama" placeholder="Masukan Nama Produk..." value="{{$satuan->nama}}">
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="exampleInputUsername1">Nama</label>
+                            <input type="text" autofocus required class="form-control" name="nama" placeholder="Masukan Nama Produk..." value="{{$satuan->nama}}">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Deskripsi</label>
-                      <input type="text" autofocus required class="form-control" name="deskripsi" placeholder="Masukan Judul Deskripsi..." value="{{$satuan->deskripsi}}">
+
+                    <div class="col-md-6 mb-3">
+                        <label for="exampleInputUsername1">Deskripsi</label>
+                        <input type="text" autofocus required class="form-control" name="deskripsi" placeholder="Masukan Judul Deskripsi..." value="{{$satuan->deskripsi}}">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Harga</label>
-                      <input type="text" autofocus required class="form-control" name="harga" placeholder="Masukan Harga Produk..." value="{{$satuan->harga}}">
+
+                    <div class="col-md-6 mb-3">
+                        <label for="exampleInputUsername1">Harga</label>
+                        <input type="text" autofocus required class="form-control" name="harga" placeholder="Masukan Harga Produk..." value="{{$satuan->harga}}">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputUsername1">Foto</label>
-                      <input type="file" autofocus required class="form-control" name="foto" value="{{$satuan->foto}}">
+
+                    <div class="col-md-6 mb-3">
+                        <label>Satuan</label>
+                            <select required name="id_satuan" class="js-example-basic-single w-100">
+                              <option value="{{$produk->id}}">{{$produk->nama}}</option>
+                              @foreach($produkAll as $data)
+                              <option value="{{$data->id}}">{{$data->nama}}</option>
+                              @endforeach
+                            </select>
                     </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Jenis</label>
+                            <select required name="id_jenis" class="js-example-basic-single w-100">
+                              <option value="{{$jenis->id}}">{{$jenis->nama}}</option>
+                              @foreach($jenisAll as $data)
+                              <option value="{{$data->id}}">{{$data->nama}}</option>
+                              @endforeach
+                            </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="exampleInputUsername1">Foto</label>
+                        <input type="file" autofocus required class="form-control" name="foto" value="{{$satuan->foto}}">
+                    </div>
+
                     <button type="submit" class="btn btn-primary mt-1 mr-2"><i class="mdi mdi-content-save-all"></i> Update Data</button>
                   </form>
                 </div>

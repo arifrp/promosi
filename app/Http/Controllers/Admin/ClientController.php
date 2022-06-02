@@ -22,7 +22,7 @@ class ClientController extends Controller
         DB::table('client')->insert([
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
-            'foto' => $request->foto]);
+            'foto' => $request->file('foto')]);
 
         return redirect('/admin/client')->with("success","Data Berhasil Ditambah !");
     }
